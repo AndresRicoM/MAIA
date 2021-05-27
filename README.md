@@ -24,4 +24,4 @@ Project developed during How To Grow Almost Anything Class @ MIT Media Lab
 Ackowledgements:
 Eyal Perry, David Kong, George Church, Joseph Jacobson and Pat Pataranutaporn.
 
-<img src="images/reactor.jpeg>
+<img src="images/reactor.jpeg">
