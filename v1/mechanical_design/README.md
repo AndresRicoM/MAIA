@@ -19,4 +19,4 @@ Stl Files for:
 
 Base, Battery, Peltier, Dish Adaptor, Agar Plate & Lid and Ventilation Modules.
 
-<img src="../images/parts.jpeg">
+<img src="/../images/parts.jpeg">
