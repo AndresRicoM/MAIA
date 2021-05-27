@@ -7,6 +7,8 @@
 ██║ ╚═╝ ██║██║  ██║██║██║  ██║
 ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝
 
+Andres Rico - MIT Media Lab - 2021 - aricom@mit.edu
+
 Code for running a mono frequency sound for running sound experiments on MAIA rector's sound experiment module. 
 
  */
