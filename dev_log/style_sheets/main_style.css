@@ -1,0 +1,21 @@
+body {
+  background-color: black;
+}
+
+h1 {
+  color: white;
+  text-align:center;
+  font-family:helvetica;
+}
+
+h2 {
+  color: white;
+  font-family:helvetica;
+}
+
+div {
+  padding-top: 50px;
+  padding-right: 80px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
