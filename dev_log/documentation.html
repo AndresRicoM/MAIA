@@ -200,8 +200,61 @@
 
   <p>
     <h2>MAIA for Education</h2>
-    
+    With the ending of the HTGAA class. Laura and I decided to keep pushing the basic ideas of MAIA a step further. We have discussed about implications that MAIA could have for democratizing SynBio experimentation.
+    Borrowing from ideas coming from the Fab Academy, BioBits, AminoLabs, Opentons, iGEM, etc. We will set out to build a second version for the reactor. The new version will have a radical design
+    change in order to make the design even more modular, low cost, replicable and easy to scale. Further developments will be tested at MIT's biohacker space and supported by City Science and Sloan's Sandbox program.
   </p>
+  <p>
+    <b>September 1, 2021: </b>
+    Application to MIT BioMaker space has been completed! We will keep an eye out for incoming information.
+  <p/>
+
+  <p>
+    <b>September 5, 2021: Modular square designs.</b>
+    New Modular and Square design for the reactor. We have been testing different design alternatives for the reactor. A key interest is to allows stackability and seamless connections when devices are stacked.
+    The design will have power and data lines and magnetic connections so as to allow modules to be powered and to communicate by means of the mechanical assembly. Form factor has been simplified so that we can
+    have better ergonomics and so that we can later adapt modules to be used with parts that are locally manfactured (juice boxes, bottles, clay, etc.)
+  </p>
+
+  <p>
+    <b>September 15, 2021:</b>
+    We submitted an application to MIT's sandbox program. We proposed a budget for development and testing of the device of 4,000 USD. The goals stated in the application are the following:
+    <ul>
+      <li>Design of power, control and temperature modules.</li>
+      <li>Testing ecoli growth on solid, liquid and microfluidic mediums.</li>
+      <li>Testing growth with low cost components.</li>
+    </ul>
+  </p>
+
+  <p>
+    <b>September 20, 2021: Power Module Update </b>
+    I have started to work on the power module board. The original idea is to have the a module that only deals with power. Lines will be mechanically connected through the magnetic coupling system. The shells will have fourlines in total.
+    The power board will allow to connect the device for direct power through a 5V USB C connector. This connector will also serve as a charging port. The module will have a power management system that will allow for plugged and battery operation.
+    Battery will also be charged while device is operating through usb power. We base our electonics design on the following schematics.
+  </p>
+
+  <img src="assets/pm_abstract.jpeg"  width="24.5%" class="center"  > <br><br>
+  <img src="assets/pm_implemented.jpeg"  width="24.5%" class="center"  >
+
+  <p>
+    The power board design is making progress. There is a problem with the size of the pins that the olipo charger and power management IC's have. If we want to mill the circuit, we cannot do so with a 1/64 end mill.
+    I have ordered a .005 inch end mill to see if I can manage to mill the tiny circuits. Other alternatives would involve having the boards manufactured or adding pre made breakout boards. The later options
+    disrpt the goal of making the device as open source and DIY as possible. Lets hope the tiny endmills work.
+  </p>
+
+  <p>
+    This is the first board design for the module. I want to run some tests with cutting and soldering the required components. Finding out how to connect the leads to the pads
+    would also be very useful.
+  </p>
+
+  <img src="assets/pm_first.jpeg"  width="24.5%" class="center"  > <br><br>
+
+  <p>
+    Here is the difference in the cutting paths made by mods when using a .015 in mil vs a .005 one. I think the small mill will solve the issue but it will be quite hard to use without breaking. 
+  </p>
+
+  <img src="assets/1-64mil.png"  width="51.5%" align="center"  >
+  <img src="assets/005mil.png"  width="47.5%" align="center"  >
 
 
 </div>
