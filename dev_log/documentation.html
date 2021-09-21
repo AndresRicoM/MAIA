@@ -250,11 +250,39 @@
   <img src="assets/pm_first.jpeg"  width="24.5%" class="center"  > <br><br>
 
   <p>
-    Here is the difference in the cutting paths made by mods when using a .015 in mil vs a .005 one. I think the small mill will solve the issue but it will be quite hard to use without breaking. 
+    Here is the difference in the cutting paths made by mods when using a .015 in mil vs a .005 one. I think the small mill will solve the issue but it will be quite hard to use without breaking.
   </p>
 
   <img src="assets/1-64mil.png"  width="51.5%" align="center"  >
   <img src="assets/005mil.png"  width="47.5%" align="center"  >
+
+  <p>
+    <b>September 21, 2021: First Mother Board Test and Custom Library Built</b>
+    Designed a custom part for the data and power lines that will be on every board in order to connect them to
+    the mechanical modules with copper tape lines. The part allows the designer to connect tapes and pins properly to any board.
+  </p>
+  <img src="assets/connect_pads.png"  width="51.5%" class="center"  >
+
+  <p>
+    I also started the design and testing of the first mother board. The mother board will be based on an ESP32 WROOM chip. This will allow us to control all devices through WIFI or Bluetooth.
+    The board has breakout connections to TX-RX and I2C Pins. It is still possible to add more components to the board but I think that keeping it minimal will allow it have easier functionality.
+    This board will be the i2c master and will communicate with all the peripheral modules. Each experiment will have the entire sequence programmed into the mother board and the mother board will communicate
+    externally to sensors and actuators.
+  </p>
+
+  <img src="assets/mother_board_gcode.png"  width="33%" align="center"  >
+  <img src="assets/mother_board_design.png"  width="33%" align="center"  >
+  <img src="assets/mother_board_milled.jpeg"  width="33%" align="center"  >
+
+  <p>
+    When finished milling, I realized the board is missing the push button to enable programming mode. I have made the fix on the EAGLE file and will make changes on gcode and mill another one.  =(
+    Nevertheless, the shape of the board looks good and the cuts for the power and data pads look great! I will also add logos for the Media Lab and City Science.
+  </p>
+
+  <p>
+    I fixed the button flaw from above and here is the first mother board iteration. I will be running tests and fabricating it throught the week.
+  </p>
+  <img src="assets/mother_board_buttondesign.jpeg"  width="33%" class="center"  >
 
 
 </div>
