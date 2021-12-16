@@ -1,0 +1,15 @@
+Mother Board
+
+Temperature Board
+Inputs - NTC Temperature Sensor
+Outputs - Peltier, LED1, LED2
+
+I2C Address - 3
+Query with 1:
+Returns Sensor and Peltier State
+
+Query with 2:
+Turns ON Peltier
+
+Query with 3:
+Turns OFF Peltier
