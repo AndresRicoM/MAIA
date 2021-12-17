@@ -1,4 +1,6 @@
 Mother Board
+I2C Address - 0
+
 
 Temperature Board
 Inputs - NTC Temperature Sensor
