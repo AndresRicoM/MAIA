@@ -18,6 +18,7 @@
  */
  
 #include <Wire.h>
+#include <EEPROM.h>
 
 int rled = 10; //Output Pins on ATTINY 1614
 int gled = 0;
@@ -37,10 +38,12 @@ void setup() {
   pinMode(rled, OUTPUT);
   pinMode(gled, OUTPUT);
   pinMode(bled, OUTPUT);
+  
+  digitalWrite(rled, LOW);
+  digitalWrite(gled, LOW);
+  digitalWrite(bled, LOW);
 
-  digitalWrite(rled, HIGH);
-  digitalWrite(gled, HIGH);
-  digitalWrite(bled, HIGH);
+  color_stimulation(EEPROM.read(0));
 
   Wire.begin(5);
   Wire.onReceive(receiveEvent);
@@ -55,8 +58,15 @@ void receiveEvent(int bytes) {
   x = Wire.read();
   Serial.print("Received Light Color of: ");
   Serial.println(x);
+  
+  EEPROM.write(0,x);
+  color_stimulation(x);
+    
+  }
 
-  switch (x) {
+void color_stimulation(int command) {
+
+  switch (command) {
 
     case 1: {
       Serial.print("Turning Red Light On");
@@ -82,7 +92,6 @@ void receiveEvent(int bytes) {
       Serial.print("Turning All Lights Off");
       lights_off();
     }
-    
   }
 }
 
