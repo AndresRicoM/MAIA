@@ -17,17 +17,16 @@
       Andres Rico - aricom@mit.edu
  */
  
-#include <Wire.h>
-#include <EEPROM.h>
+#include <Wire.h> //I2C Communication
+#include <EEPROM.h> //EEPROM access library.
 
 int rled = 10; //Output Pins on ATTINY 1614
 int gled = 0;
 int bled = 1;
 
-//float states[] = {};
-int x = 0;
+int x = 0; //Variable for storing incoming i2c message. 
 
-float temp_average = 0;
+float temp_average = 0; //Float for stroing temperature sensoir value. 
 
 void setup() {
   // put your setup code here, to run once:
@@ -35,18 +34,19 @@ void setup() {
   Serial.begin(115200);
   Serial.println("Hello MAIA Light Module");
   
-  pinMode(rled, OUTPUT);
+  pinMode(rled, OUTPUT); //Sets LED arrays as outputs. 
   pinMode(gled, OUTPUT);
   pinMode(bled, OUTPUT);
   
-  digitalWrite(rled, LOW);
+  digitalWrite(rled, LOW); 
   digitalWrite(gled, LOW);
   digitalWrite(bled, LOW);
 
-  color_stimulation(EEPROM.read(0));
+  color_stimulation(EEPROM.read(0)); //Check eproom to turn on last value of light that was sent. Essential for when power fluctuates on chip. 
 
-  Wire.begin(5);
-  Wire.onReceive(receiveEvent);
+  Wire.begin(5); //I2C address 5. Same address should be set on mother module. 
+  Wire.onReceive(receiveEvent); //Listening event for i2c communication. 
+  
   Serial.println("Ready To Begin!");
 }
 
@@ -54,19 +54,20 @@ void loop() {
   
 }
 
-void receiveEvent(int bytes) {
-  x = Wire.read();
+void receiveEvent(int bytes) { //Runs when i2c receives message. 
+  
+  x = Wire.read(); //Reads i2c message. 
   Serial.print("Received Light Color of: ");
   Serial.println(x);
   
-  EEPROM.write(0,x);
+  EEPROM.write(0,x); //Sets new value on internal memory in case module restarts. 
   color_stimulation(x);
     
   }
 
-void color_stimulation(int command) {
+void color_stimulation(int command) { //Chooses what color to turn on depending on the received command. 
 
-  switch (command) {
+  switch (command) { //Commands are sent by mother module.
 
     case 1: {
       Serial.print("Turning Red Light On");
