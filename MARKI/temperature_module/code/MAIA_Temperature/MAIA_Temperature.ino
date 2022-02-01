@@ -17,7 +17,8 @@
       Andres Rico - aricom@mit.edu
  */
 
-#include <Wire.h>
+#include <Wire.h> //I2C Communication
+#include <EEPROM.h> //EEPROM access library.
 
 //Definitions for thermistor temperature option. 
 #define SERIESRESISTOR 10000
@@ -26,14 +27,13 @@
 #define BCOEFFICIENT 3950   
 #define THERMISTORNOMINAL 10000
 
-int led1 = 9;
-int led2 = 8;
-int peltier = 1;
+int led1 = 9; //Blue LED
+int led2 = 8; //Red LED
+int peltier = 1; //Peltier pin. 
 
-//float states[] = {};
-int x = 0;
+int x = 0; //Variable for storing incoming i2c message. 
 
-float temp_average = 0;
+float temp_average = 0; //Float for stroing temperature sensoir value. 
 
 void setup() {
   // put your setup code here, to run once:
@@ -49,6 +49,8 @@ void setup() {
   digitalWrite(led2, LOW);
   digitalWrite(peltier, LOW);
 
+  x = EEPROM.read(0); //Check eproom to turn on last value of temperature that was sent. Essential for when power fluctuates on chip.
+
   Wire.begin(3);
   Wire.onReceive(receiveEvent);
   Serial.println("Ready To Begin!");
@@ -57,32 +59,35 @@ void setup() {
 void loop() {
   //Serial.println(Wire.read());
 
-  while (temp_average < x) {
+  while (temp_average < x) { //Peltier will heat up anytime that temperature is below target. 
   
     digitalWrite(peltier, HIGH);
-    digitalWrite(led2, HIGH);
+    digitalWrite(led2, HIGH); //Red led on for heating up. 
     digitalWrite(led1, LOW);
     get_temperature();
     
   }
   digitalWrite(peltier, LOW);
-  digitalWrite(led1, HIGH);
+  digitalWrite(led1, HIGH); //Blue led on when temperature is correct or reactor is cooling down. 
   digitalWrite(led2, LOW);
   get_temperature();
   
 }
 
-void receiveEvent(int bytes) {
-  x = Wire.read();
+void receiveEvent(int bytes) { //Runs when i2c receives message. 
+  
+  x = Wire.read(); //Reads i2c message. 
   Serial.print("Received Target Temperature of: ");
   Serial.println(x);
+
+  EEPROM.write(0,x); //Sets new value on internal memory in case module restarts. 
 }
 
-void get_temperature() {
+void get_temperature() { //Oversamples NTC analog pin to get average of temperature. 
 
   //Thermistor Temperature
   temp_average = 0;
-  for (int i =0; i < 50 ; i++) {
+  for (int i =0; i < 50 ; i++) { //50 samples per average. 
 
     float therm_reading;
  
@@ -104,7 +109,7 @@ void get_temperature() {
     
   }
 
-  temp_average = temp_average / 50;
+  temp_average = temp_average / 50; //Define temperature value. 
   Serial.print("Current Culture Temperature: ");
   Serial.println(temp_average);
   
