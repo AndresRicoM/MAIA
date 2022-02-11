@@ -1,7 +1,10 @@
 import socket
 
+#MAIA1 - 10.31.67.9
+#MAIA2 - 10.31.100.148
+
 while True:
-    UDP_IP = "10.31.67.9"
+    UDP_IP = "10.31.100.148"
     UDP_PORT = 1206
     MESSAGE = input("Enter your value: ")
 
