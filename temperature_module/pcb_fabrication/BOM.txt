@@ -1,11 +1,12 @@
-- (1) ESP 32 WROOM
-- (1) 10K SMD 1206 Resistor
-- (2) .5K SMD 1206 Resistor
+- (1) ATTINY 1614
+- (5) 0 Ohm SMD 1206 Resistor
+- (3) .5K SMD 1206 Resistor
 - (1) 1uF SMD 1206 Capacitor
-- (1) .1uF SMD 1206 Capacitor
-- (1) 10uF SMD 1206 Capacitor
 - (1) Green SMD LED
 - (1) Blue SMD LED
+- (1) Red SMD LED
 - (1) 3.3V Regulator (ZLDO1117G33TA)
-- (1) Switch
-- (1) Button
+- (1) N Transistors
+- (3) 2 pin Female horizontal headers
+- (1) Peltier
+- (1) NTC Epoxy Thermistor
