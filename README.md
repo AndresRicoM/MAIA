@@ -22,4 +22,4 @@ Modular, low-cost, open source and portable bio reactor for bio sensor testing a
 Ackowledgements:
 Laura Gonazalez, Eyal Perry, David Kong, George Church, Joseph Jacobson.
 
-<img src="images/maia_platform.jpeg">
+<img src="images/MAIA_platform.jpeg">
